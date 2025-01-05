@@ -1,8 +1,8 @@
 # Casting-Number-Comparison-Using-ResNet50
 
-#This Python script compares two images of casting numbers using the ResNet50 model, which is pretrained on ImageNet. The script extracts embeddings from both images and computes their cosine similarity to determine if the casting numbers match. It uses PyTorch, OpenCV, and PIL for image processing.
+This Python script compares two images of casting numbers using the ResNet50 model, which is pretrained on ImageNet. The script extracts embeddings from both images and computes their cosine similarity to determine if the casting numbers match. It uses PyTorch, OpenCV, and PIL for image processing.
 
-#Requirements
+##Requirements
 Ensure you have the following libraries installed:
 
 torch
@@ -13,7 +13,7 @@ opencv-python
 You can install the required dependencies via pip:
 
 bash
-Copy code
+
 pip install torch torchvision pillow numpy opencv-python
 How the Script Works
 Image Loading and Transformation:
