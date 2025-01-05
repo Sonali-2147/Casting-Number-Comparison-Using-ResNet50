@@ -1,61 +1,77 @@
-# Casting-Number-Comparison-Using-ResNet50
 
-Casting Number Comparison Using ResNet50
 
-This Python script compares two images of casting numbers using the ResNet50 model, which is pretrained on ImageNet. The script extracts embeddings from both images and computes their cosine similarity to determine if the casting numbers match. It uses PyTorch, OpenCV, and PIL for image processing.
+Here’s a README file template for your project:
 
-Requirements
+---
 
-Ensure you have the following libraries installed:
+# Casting Number Detection and Comparison using ResNet
 
-torch
-torchvision
-PIL (Pillow)
-numpy
-opencv-python
-You can install the required dependencies via pip:
+This project uses a pretrained ResNet50 model to detect and compare casting numbers from images. The goal is to find out if two images contain the same casting numbers by calculating the similarity between their embeddings. The model utilizes the ResNet50 architecture, which is pretrained on ImageNet, and the image embeddings are extracted and compared using cosine similarity.
 
-bash
-Copy code
-pip install torch torchvision pillow numpy opencv-python
-How the Script Works
-Image Loading and Transformation:
+## Requirements
 
-The images are loaded using PIL and transformed to match the input requirements of the ResNet50 model (size 224x224 pixels, tensor conversion, and normalization).
-Embedding Extraction:
+- Python 3.x
+- `torch`: PyTorch library for machine learning
+- `torchvision`: Computer vision library for pre-trained models
+- `PIL`: Python Imaging Library for image processing
+- `opencv-python`: OpenCV library for computer vision tasks
+- `numpy`: For numerical operations
 
-The script uses the ResNet50 model to extract embeddings from each image. The ResNet50 model is pretrained on ImageNet and we remove its last layer to get embeddings before classification.
-Cosine Similarity:
+Install required libraries:
 
-After obtaining the embeddings for both images, the script calculates the cosine similarity between the two embeddings. The similarity score determines whether the casting numbers match.
-Threshold:
+```bash
+pip install torch torchvision pillow opencv-python numpy
+```
 
-A similarity threshold of 0.95 is set by default. If the cosine similarity exceeds this threshold, the script outputs that the casting numbers match, otherwise, it indicates they do not.
-Script Usage
-Step 1: Prepare Images
-Ensure the images you wish to compare are in JPEG or PNG format and that they are stored in accessible file paths.
+## Files
 
-Step 2: Set File Paths
-Modify the file paths in the script to point to the images you wish to compare:
+- **casting_number_detection.py**: Main script that processes the images and compares their casting numbers.
+- **image1.jpeg**: Sample image of a casting number.
+- **image2.jpg**: Another sample image for comparison.
 
-python
-Copy code
-image1_path = "C:\\Casting number detection\\Casting metal.jpeg"
-image2_path = "C:\\Casting number detection\\casting metal 3.jpg"
-Step 3: Run the Script
-Simply run the script, and it will print whether the casting numbers match or not based on the cosine similarity.
+## How It Works
 
-Example Output:
-sql
-Copy code
-TRUE Casting numbers match! (Similarity: 0.98)
-or
+1. **Image Preprocessing**: The input images are preprocessed by resizing them to 224x224 pixels and normalizing using ImageNet statistics.
+   
+2. **Feature Extraction**: The ResNet50 model (pretrained on ImageNet) is used to extract embeddings (features) from the images. Only the convolutional layers are used, excluding the classification layer.
 
-sql
-Copy code
-FALSE Casting numbers DO NOT match! (Similarity: 0.89)
-Customization
-Threshold: The default threshold for matching is set to 0.95. You can change this by passing a different value to the compare_casting_numbers_resnet function.
-python
-Copy code
-compare_casting_numbers_resnet(img1_path, img2_path, threshold=0.90)
+3. **Cosine Similarity**: The cosine similarity is calculated between the embeddings of the two images. The similarity score determines whether the images represent the same casting number.
+
+4. **Thresholding**: If the similarity score exceeds the predefined threshold (0.95 by default), it is considered a match.
+
+## Usage
+
+1. Replace `image1_path` and `image2_path` with the paths to the images you want to compare.
+2. Run the `casting_number_detection.py` script.
+
+### Example:
+
+```python
+image1_path = "path/to/image1.jpg"
+image2_path = "path/to/image2.jpg"
+compare_casting_numbers_resnet(image1_path, image2_path)
+```
+
+Output:
+
+- If the casting numbers match:
+    ```
+    TRUE Casting numbers match! (Similarity: 0.97)
+    ```
+- If the casting numbers do not match:
+    ```
+    FALSE Casting numbers DO NOT match! (Similarity: 0.75)
+    ```
+
+## Customization
+
+- **Threshold**: Adjust the similarity threshold in the `compare_casting_numbers_resnet()` function. The default is 0.95.
+- **Model**: You can replace ResNet50 with other models from `torchvision.models`, depending on your use case.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Feel free to update the content to match your exact project details!
