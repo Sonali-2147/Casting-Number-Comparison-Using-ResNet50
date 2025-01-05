@@ -1,9 +1,3 @@
-
-
-Here’s a README file template for your project:
-
----
-
 # Casting Number Detection and Comparison using ResNet
 
 This project uses a pretrained ResNet50 model to detect and compare casting numbers from images. The goal is to find out if two images contain the same casting numbers by calculating the similarity between their embeddings. The model utilizes the ResNet50 architecture, which is pretrained on ImageNet, and the image embeddings are extracted and compared using cosine similarity.
@@ -68,10 +62,6 @@ Output:
 - **Threshold**: Adjust the similarity threshold in the `compare_casting_numbers_resnet()` function. The default is 0.95.
 - **Model**: You can replace ResNet50 with other models from `torchvision.models`, depending on your use case.
 
-## License
+## Contact
+For any queries or feedback, please email me at kadamsonali2147@gmail.com.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to update the content to match your exact project details!
